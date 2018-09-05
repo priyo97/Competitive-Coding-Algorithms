@@ -6,12 +6,16 @@ def main():
 
 	combinations1(l,chosen)
 
+	print("\n\n")
+
+	combinations2(l,chosen,0)
+
 
 def combinations1(l,chosen):
 
 	if not l:
 
-		print(chosen)
+		print(",".join(chosen))
 
 	else:
 
@@ -20,10 +24,10 @@ def combinations1(l,chosen):
 		l.remove(l[0])
 
 		chosen.append(c)
-		combinations(l,chosen)
+		combinations1(l,chosen)
 		
 		chosen.remove(c)
-		combinations(l,chosen)
+		combinations1(l,chosen)
 
 		l.insert(0,c)
 
@@ -31,7 +35,7 @@ def combinations1(l,chosen):
 
 def combinations2(l,chosen,start):
 
-	print(chosen)
+	print(",".join(chosen))
 
 	if start == len(l):
 
@@ -43,7 +47,7 @@ def combinations2(l,chosen,start):
 			
 			chosen.append(l[i])
 
-			combinations(l,chosen,i+1)
+			combinations2(l,chosen,i+1)
 			
 			chosen.remove(l[i])
 
