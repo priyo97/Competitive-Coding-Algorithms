@@ -45,16 +45,15 @@ def combination(s,chosen,d,n):
 
 		c = s[0]
 
-		s.remove(c)
+		s.pop(0)
 
 		chosen.append(c)
 
-		
 		combination(s,chosen,d,n-1)
 
-		chosen.remove(c)
-
 		
+		chosen.pop()
+
 		combination(s,chosen,d,n-1)
 
 		s.insert(0,c)
