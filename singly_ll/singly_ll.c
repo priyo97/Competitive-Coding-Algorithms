@@ -183,7 +183,10 @@ void operate_ll(ll_details *l)
                 opt2 = get_input();
 
                 if(opt2 == EXIT)
+                {
+                    free_linked_list(l);
                     exit(0);
+                }
 
                 operate(opt1, opt2, l);
                 break;
@@ -192,6 +195,7 @@ void operate_ll(ll_details *l)
                 print_ll(l->head);
                 break;
             case EXIT:
+                free_linked_list(l);
                 exit(0);
                 break;
         }
@@ -224,4 +228,19 @@ void print_ll(Node *head)
     }
     
     printf(" -> NULL\n");
+}
+
+void free_linked_list(ll_details *l)
+{
+    Node *tmp, *free_node;
+
+    tmp = l -> head;
+    free_node = NULL;
+    
+    while(tmp!=NULL)
+    {
+        free_node = tmp;
+        tmp = tmp -> next;
+        free(free_node); 
+    }
 }

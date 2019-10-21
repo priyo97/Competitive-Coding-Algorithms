@@ -46,5 +46,7 @@ int  get_input();
 int get_pos(int cur_len, enum Operation opt);
 void operate(enum Operation opt, enum Choice c, ll_details *l);
 Node* create_node(int data);
+void free_linked_list(ll_details *l);
+
 
 #endif
